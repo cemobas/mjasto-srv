@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-export const EventSchema = new Schema({
+const EventSchema = new Schema({
     id: {
         type: String,
         required: 'Enter id'
@@ -20,10 +19,10 @@ export const EventSchema = new Schema({
     cap: {
         type: Number
     },
-    price: new Schema({
-      price: Number,
+    price: {
+      amount: Number,
       currency: String
-    }),
+    },
     short: {
         type: String,
         required: 'Enter the short explanation'
@@ -40,3 +39,6 @@ export const EventSchema = new Schema({
         required: 'Enter when it is posted'
     }
 });
+
+const Event = mongoose.model('Event', EventSchema);
+module.exports = Event;
