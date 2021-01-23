@@ -25,6 +25,10 @@ The service exchanges payloads in JSON.
 This project uses EditorConfig to standardize text editor configuration.
 Visit http://editorconfig.org for details.
 
+for a specific file: npm run -s eslint index.js
+
+for the whole codebase: npm run -s eslint .
+
 ### Debugging
 
 This project uses https://www.npmjs.com/package/debug for development logging. To start `nodemon` and enable logging:
