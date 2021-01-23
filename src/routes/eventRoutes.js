@@ -1,4 +1,4 @@
-import { addNewEvent, getEvents, getLatestEvents, getEventWithId, updateEvent, deleteEvent, getThemes } from '../controllers/eventController';
+import { getEvents, getLatestEvents, getEventWithId /** addNewEvent, updateEvent, deleteEvent */ } from '../controllers/eventController';
 
 /** Injecting app object, because we're going to use routes function in order to pass the endpoints created here. */
 const routes = (app) => {

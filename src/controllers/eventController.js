@@ -4,7 +4,7 @@ import { EventSchema } from '../models/eventModel';
 const Event = mongoose.model('Event', EventSchema);
 
 export const addNewEvent = (req, res) => {
-    let newEvent = new Event(req.body);
+    const newEvent = new Event(req.body);
 
     newEvent.save((err, event) => {
         if (err) {
@@ -52,7 +52,7 @@ export const updateEvent = (req, res) => {
 }
 
 export const deleteEvent = (req, res) => {
-    Event.remove({ index: req.params.eventId }, (err, event) => {
+    Event.remove({ index: req.params.eventId }, (err) => {
         if (err) {
             res.send(err);
         }
