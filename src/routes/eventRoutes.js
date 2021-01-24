@@ -1,4 +1,4 @@
-import { getEvents, getLatestEvents, getEventWithId /** addNewEvent, updateEvent, deleteEvent */ } from '../controllers/eventController';
+const {getEvents, getLatestEvents, getEventWithId} = require('../controllers/eventController')
 
 /** Injecting app object, because we're going to use routes function in order to pass the endpoints created here. */
 const routes = (app) => {
@@ -24,4 +24,4 @@ const routes = (app) => {
         //.delete(deleteEvent);
 }
 
-export default routes; // es6 syntax. no way to use it without export.
+module.exports = routes

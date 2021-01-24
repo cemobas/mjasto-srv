@@ -1,9 +1,9 @@
-import express from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import eventRoutes from './src/routes/eventRoutes';
-import userRoutes from './src/routes/userRoutes';
+const express = require('express')
+const cors = require('cors')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const eventRoutes = require('./src/routes/eventRoutes')
+const userRoutes = require('./src/routes/userRoutes')
 
 const app = express();
 const PORT = process.env.PORT || 8080;

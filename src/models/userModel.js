@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-export const UserSchema = new Schema({
+const UserSchema = new Schema({
     nickname: {
         type: String,
         required: 'Enter a nickname for the author'
@@ -32,3 +31,6 @@ export const UserSchema = new Schema({
         required: 'Enter instagram link'
     }
 });
+
+const User = mongoose.model('User', UserSchema);
+module.exports = User;

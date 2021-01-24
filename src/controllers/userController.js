@@ -1,9 +1,7 @@
-import mongoose from 'mongoose';
-import { UserSchema } from '../models/userModel';
+const mongoose = require('mongoose');
+const User = require('../models/userModel');
 
-const User = mongoose.model('User', UserSchema);
-
-export const getUserWithId = (req, res) => {
+const getUserWithId = (req, res) => {
     User.findOne({ nickname: req.params.nickname }, (err, user) => {
         if (err) {
             res.send(err);
@@ -11,3 +9,5 @@ export const getUserWithId = (req, res) => {
         res.json(user);
     });
 }
+
+module.exports = getUserWithId;

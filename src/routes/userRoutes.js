@@ -1,4 +1,4 @@
-import { getUserWithId } from '../controllers/userController';
+const getUserWithId = require('../controllers/userController')
 
 /** Injecting app object, because we're going to use routes function in order to pass the endpoints created here. */
 const routes = (app) => {
@@ -9,4 +9,4 @@ const routes = (app) => {
         }, getUserWithId);
 }
 
-export default routes; // es6 syntax. no way to use it without export.
+module.exports = routes;

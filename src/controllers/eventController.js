@@ -1,9 +1,7 @@
-import mongoose from 'mongoose';
-import { EventSchema } from '../models/eventModel';
+const mongoose = require('mongoose');
+const Event = require('../models/eventModel');
 
-const Event = mongoose.model('Event', EventSchema);
-
-export const addNewEvent = (req, res) => {
+const addNewEvent = (req, res) => {
     const newEvent = new Event(req.body);
 
     newEvent.save((err, event) => {
@@ -14,7 +12,7 @@ export const addNewEvent = (req, res) => {
     });
 };
 
-export const getEvents = (req, res) => {
+const getEvents = (req, res) => {
     Event.find({}, (err, events) => {
         if (err) {
             res.send(err);
@@ -23,7 +21,7 @@ export const getEvents = (req, res) => {
     });
 };
 
-export const getLatestEvents = (req, res) => {
+const getLatestEvents = (req, res) => {
     Event.find({}, [], { skip: parseInt(req.params.skip), limit: parseInt(req.params.limit), sort: { date: -1 } }, (err, events) => {
         if (err) {
             res.send(err);
@@ -32,7 +30,7 @@ export const getLatestEvents = (req, res) => {
     });
 };
 
-export const getEventWithId = (req, res) => {
+const getEventWithId = (req, res) => {
     Event.findOne({ index: req.params.eventId }, (err, event) => {
         if (err) {
             res.send(err);
@@ -41,7 +39,7 @@ export const getEventWithId = (req, res) => {
     });
 }
 
-export const updateEvent = (req, res) => {
+const updateEvent = (req, res) => {
     /** "new: true" means you want the new (updated) data in the response (not the old data) */
     Event.findOneAndUpdate({ index: req.params.eventId }, req.body, { new: true }, (err, event) => {
         if (err) {
@@ -51,7 +49,7 @@ export const updateEvent = (req, res) => {
     })
 }
 
-export const deleteEvent = (req, res) => {
+const deleteEvent = (req, res) => {
     Event.remove({ index: req.params.eventId }, (err) => {
         if (err) {
             res.send(err);
@@ -59,3 +57,5 @@ export const deleteEvent = (req, res) => {
         res.json({ message: 'Successfully deleted event' });
     })
 }
+
+module.exports = {addNewEvent, getEvents, getLatestEvents, getEventWithId, updateEvent, deleteEvent}
