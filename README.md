@@ -37,6 +37,24 @@ This project uses https://www.npmjs.com/package/debug for development logging. T
 npm run debug
 ```
 
+### Testing
+
+Running the following cmd runs the tests under test folder.
+
+```
+npm test -- --recursive
+```
+
+mongod instance must have been started as well.
+
+### Database
+
+Data sources are stored in Mongodb. To start mongod instance, run this cmd:
+
+```
+sudo mongod --dbpath ~/data/db
+```
+
 ## FAQ
 
 - Q: Why?
