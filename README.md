@@ -42,7 +42,7 @@ npm run debug
 Running the following cmd runs the tests under test folder.
 
 ```
-npm test -- --recursive
+npm test
 ```
 
 mongod instance must have been started as well.
